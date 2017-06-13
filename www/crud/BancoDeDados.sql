@@ -51,6 +51,7 @@ CREATE TABLE tbListaExercicio(
     nomeListaExercicio varchar(50),
 	descricao varchar(255),
     dataLista DATETIME,
+    tamanho INTEGER,
     idAssunto INTEGER NOT NULL,
     FOREIGN KEY (idAssunto) REFERENCES tbAssunto(idAssunto) ON UPDATE CASCADE
 );
@@ -70,9 +71,24 @@ CREATE TABLE tbAlternativa(
     enunciado varchar(255),
 	letra char not null,
     idQuestao INTEGER NOT NULL,
-	idPessoa INTEGER NOT NULL,
-    FOREIGN KEY (idPessoa) REFERENCES tbPessoa(idPessoa) ON UPDATE CASCADE,
     FOREIGN KEY (idQuestao) REFERENCES tbQuestao(idQuestao) ON UPDATE CASCADE
+);
+
+CREATE TABLE db.tbAlternativaCorreta(
+	idQuestao INTEGER NOT NULL PRIMARY KEY,
+    idAlternativa INTEGER not null,
+    FOREIGN KEY (idQuestao) REFERENCES tbQuestao(idQuestao) ON UPDATE CASCADE,
+	FOREIGN KEY (idAlternativa) REFERENCES tbAlternativa(idAlternativa) ON UPDATE CASCADE
+);
+
+CREATE TABLE db.tbResposta(
+	idPessoa INTEGER NOT NULL,
+	idQuestao INTEGER NOT NULL,
+    idAlternativa INTEGER not null,
+    PRIMARY KEY (idPessoa,idQuestao),
+	FOREIGN KEY (idPessoa) REFERENCES tbPessoa(idPessoa) ON UPDATE CASCADE,
+    FOREIGN KEY (idQuestao) REFERENCES tbQuestao(idQuestao) ON UPDATE CASCADE,
+	FOREIGN KEY (idAlternativa) REFERENCES tbAlternativa(idAlternativa) ON UPDATE CASCADE
 );
 
 CREATE TABLE tbListaExercicioPessoa(

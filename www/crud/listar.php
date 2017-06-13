@@ -31,6 +31,4 @@ while ($row = mysqli_fetch_assoc($res)) {
 }
 echo "</table>";
 echo "</center>";
-
-
 ?>

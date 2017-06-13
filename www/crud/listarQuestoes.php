@@ -7,9 +7,9 @@ $num_questao = $_GET["num_questao"];
 
 $id = $_GET["id"];
 
-$sql = "select * from tbQuestao where idListaExercicio = ".$id." ORDER BY idListaExercicio LIMIT ".$num_questao.",1;";
+$tam = $_GET["tam"];
 
-$num_questao = $num_questao + 1;
+$sql = "select * from tbQuestao where idListaExercicio = ".$id." ORDER BY idListaExercicio LIMIT ".$num_questao.",1;";
 
 $res = mysqli_query($conn, $sql);
 
@@ -23,6 +23,8 @@ echo "<a href='/crud/home.php'>Home</a>";
 echo " | ";
 echo "<a href='form.php'>Novo</a> <br/><br/>";
 
+$prox_num_questao = $num_questao + 1 ;
+$ant_num_questao = $num_questao - 1 ;
 
 $row = mysqli_fetch_assoc($res);
 	
@@ -34,7 +36,29 @@ if($res2 === FALSE) {
    die(mysqli_error());
 }
 
-echo "<form action='/crud/listarQuestoes.php?id=".$id."&num_questao=".$num_questao."' method='post'>";
+echo "<table border='1px' style='width:80%'>";
+
+echo "<tr>";
+
+$cont = 0;
+
+while ( $cont < $tam) {
+
+	echo "<td><center><a href='/crud/listarQuestoes.php?id=".$row["idListaExercicio"]."&num_questao=".$cont."&tam=".$tam."'";
+    $cont = $cont + 1;
+    echo "'style=text-decoration:none>".$cont."</a>";   
+
+}
+
+echo "</tr>";
+
+echo "<tr><center><form action='/crud/acertos.php?id=".$row["idListaExercicio"]."&tam=".$tam."' method='post'>";
+echo "<button type='submit' name='finalizar' class='btn-link'> FINALIZAR </button>";
+echo "</form>";
+
+echo "</tr>";
+
+echo "</table>";
 
 echo "<table border='1px' style='width:80%'>";
 
@@ -50,14 +74,39 @@ echo "</tr>";
 
 echo "</table>";
 
-
+echo "<form method='POST'>";
 while ($row2 = mysqli_fetch_assoc($res2)) {
 	echo "<INPUT TYPE='radio' NAME='OPCAO' VALUE=".$row2["idAlternativa"]." CHECKED> ".$row2["letra"].") ".$row2["enunciado"];
 }
-
-echo "<button type='submit' name='resposta' class='btn-link'>PROXIMA</button>";
-
+echo "<input type='submit'/>";
 echo "</form>";
+
+if(isset($_POST["OPCAO"]))
+{
+	$radioVal = $_POST["OPCAO"];
+	$sql3 = "insert into tbResposta (idPessoa, idQuestao, idAlternativa) values (1,".$row["idQuestao"].",".$radioVal.");";
+	//$sql3 = "select * from tbResposta where idQuestao = ".$row["idQuestao"]." AND idPessoa = 1"; //colocar o id do user
+	if( !mysqli_query($conn, $sql3)){
+		$sql3 = "update tbresposta SET idAlternativa=".$radioVal." WHERE idPessoa=1 and idQuestao=".$row["idQuestao"].";";
+		mysqli_query($conn, $sql3);
+	}
+}
+
+if($prox_num_questao < $tam){
+	echo "<form action='/crud/listarQuestoes.php?id=".$id."&num_questao=".$prox_num_questao."&tam=".$tam."' method='post'>";
+
+	echo "<button type='submit' name='resposta' class='btn-link'> PROXIMA </button>";
+
+	echo "</form>";
+}
+
+if($ant_num_questao >= 0){
+	echo "<form action='/crud/listarQuestoes.php?id=".$id."&num_questao=".$ant_num_questao."&tam=".$tam."' method='post'>";
+
+	echo "<button type='submit' name='resposta' class='btn-link'> ANTERIOR </button>";
+
+	echo "</form>";
+}
 
 echo "</center>";
 
