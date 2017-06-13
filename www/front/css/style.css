@@ -79,3 +79,51 @@
     cursor: pointer;
     box-shadow: 5px 5px 2px #888888;
 }
+
+.btnlogin1 {
+    background-color: #ff9900;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    width: 45%;
+    font-size: 15px;
+    margin: 5% 10% 0 0;
+    float: left;
+}
+
+.btnlogin2 {
+    background-color: #3299bb;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    width: 45%;
+    font-size: 15px;
+    float: left;
+    margin: 5% 0 0 0;
+}
+
+.btncadastro {
+    background-color: #3299bb;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    width: 125%;
+    position: relative;
+    top: 26px;
+    right:45px;
+    font-size: 15px;  
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.limpa{
+  clear: both;
+}
