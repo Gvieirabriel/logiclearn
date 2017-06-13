@@ -67,10 +67,9 @@
     background-color: #009ABE;
     border: none;
     color: white;
-    padding: 20px 300px;
+    padding: 3% 44.5%;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 18px;
     cursor: pointer;
 }
@@ -109,6 +108,7 @@
     height: 45%;
     width: 125%;
     position: relative;
+     display: inline-block;
     right:12.5%;
     font-size: 15px;
     margin: 9% 0 0 0;
