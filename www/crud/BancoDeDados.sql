@@ -59,7 +59,6 @@ CREATE TABLE tbListaExercicio(
 CREATE TABLE tbQuestao(
 	idQuestao INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     enunciado varchar(255),
-	questaoCorreta char not null,
     likes int,
     deslikes int,
     idListaExercicio INTEGER NOT NULL,
@@ -74,14 +73,14 @@ CREATE TABLE tbAlternativa(
     FOREIGN KEY (idQuestao) REFERENCES tbQuestao(idQuestao) ON UPDATE CASCADE
 );
 
-CREATE TABLE db.tbAlternativaCorreta(
+CREATE TABLE tbAlternativaCorreta(
 	idQuestao INTEGER NOT NULL PRIMARY KEY,
     idAlternativa INTEGER not null,
     FOREIGN KEY (idQuestao) REFERENCES tbQuestao(idQuestao) ON UPDATE CASCADE,
 	FOREIGN KEY (idAlternativa) REFERENCES tbAlternativa(idAlternativa) ON UPDATE CASCADE
 );
 
-CREATE TABLE db.tbResposta(
+CREATE TABLE tbResposta(
 	idPessoa INTEGER NOT NULL,
 	idQuestao INTEGER NOT NULL,
     idAlternativa INTEGER not null,
@@ -94,6 +93,7 @@ CREATE TABLE db.tbResposta(
 CREATE TABLE tbListaExercicioPessoa(
 	idPessoa INTEGER NOT NULL,
     idListaExercicio INTEGER NOT NULL,
+    isFeita BOOL,
     PRIMARY KEY (idPessoa, idListaExercicio),
     FOREIGN KEY (idListaExercicio) REFERENCES tbListaExercicio(idListaExercicio) ON UPDATE CASCADE,
     FOREIGN KEY (idPessoa) REFERENCES tbPessoa(idPessoa) ON UPDATE CASCADE
