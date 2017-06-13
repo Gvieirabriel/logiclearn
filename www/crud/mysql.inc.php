@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$db = "web1_2017";
+$db = "DB";
 $username = "root";
-$password = "root";
+$password = "";
 
 // Suppress criada para verificar se já existe uma database criada
 
