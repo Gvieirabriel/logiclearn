@@ -22,27 +22,27 @@ if ( isset($_GET["tam"]) )
 ?>
 <html>
 <head>
-<meta charset="utf-8">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/front/css/style.css">
+	<title>Acertos</title>
 </head>
 
-<body>
-	    
-		<?php
-			if(isset($id))
-			{
-				echo "<form action='/crud/home.php'>";
-				echo "<center>";				
-				echo "Acertou <br/>";
-				echo $row['acertos'];
-				echo "<br/>de<br/>";
-				echo $tam;				
-				echo "<br/><button type='submit' class='btn-link'> RETORNAR </button>";
-				echo "</center>";
-				echo "</form>";
-			}
-		?>
+<body class="bglogin">
 
+	<div class="loginbox">
+		<div class="logintitle">ACERTOU</div>
+			<?php
+				if(isset($id))
+				{
+					echo "<div class='logintitle'>".$row['acertos']."</div>";
+					echo "<div class='logintitle'>DE</div>";
+					echo "<div class='logintitle'>".$tam."</div>";	
+				}
+			?>
+			<form action='/crud/home.php'>
+				<br><button type="submit" class="btncadastro"><strong>RETORNAR</strong></button>
+			</form>	
+		</div>
+	</div>
 </body>
-
 </html>
-
