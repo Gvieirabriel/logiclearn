@@ -29,8 +29,10 @@ if ( isset($_GET["tam"]) )
 
 <body class="bglogin">
 
-	<div class="loginbox">
-		<div class="logintitle">ACERTOU</div>
+	<div class="searchbox">
+	<br>
+		<div class="resultForm">
+			<div class="logintitle">ACERTOU</div>
 			<?php
 				if(isset($id))
 				{
@@ -39,8 +41,9 @@ if ( isset($_GET["tam"]) )
 					echo "<div class='logintitle'>".$tam."</div>";	
 				}
 			?>
+			</div>
 			<form action='/crud/home.php'>
-				<br><button type="submit" class="btncadastro"><strong>RETORNAR</strong></button>
+				<br><button type="submit" class="buttonSearch"><strong>RETORNAR</strong></button>
 			</form>	
 		</div>
 	</div>
