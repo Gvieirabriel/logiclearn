@@ -15,6 +15,13 @@ margin: 0;
   height: 50%;
 }
 
+.searchbox{
+  margin: 10% auto;
+  background-color: #e9e9e9;
+  width: 50%;
+  height: 55%;
+}
+
 .logintitle {
   font-size: 48px;
   font-family: "Arial";
@@ -48,7 +55,7 @@ margin: 0;
   margin: 10% auto;
   background-color: #e9e9e9;
   width: 35%;
-  height: 450px;
+  height: 58.2%;
   /*border: 1px solid black;*/
 }
 
@@ -78,6 +85,7 @@ margin: 0;
     text-decoration: none;
     font-size: 18px;
     cursor: pointer;
+    width: 100%;
 }
 
 .btnlogin1 {
@@ -145,5 +153,5 @@ button:hover {
   margin: 10% auto;
   background-color: #e9e9e9;
   width: 35%;
-  height: 30%;
+  height: 40%;
 }
