@@ -69,6 +69,16 @@ margin: 0;
 
 }
 
+.resultForm{
+    /*border: 1px solid black;*/
+    width: 80%;
+    margin: 5% 0 0 10%;
+    font-size: 14px;
+    font-family: "Arial";
+    color: rgb(66, 66, 66);
+
+}
+
 .centerImage
 {
   margin: 0 0 5% 10%; 
