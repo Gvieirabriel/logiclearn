@@ -220,6 +220,7 @@ button:hover {
   font-size: 20px;
   font-weight: bold;
   display: inline-block;
+
 }
 
 .topnav .a2 {
@@ -234,6 +235,7 @@ button:hover {
 .topnav a:hover {
   background-color: white;
   color: #adabab;
+  text-decoration: none;
 }
 
 .topnav .btnhome{
@@ -270,4 +272,19 @@ button:hover {
   text-indent: 1%;
   display: inline-block;
   margin: 0 3% 0 0;
+}
+
+.searchhome{
+  background-color: lightgrey;
+  position: absolute; 
+  left: 65%;
+  top: 2%;
+}
+
+.searchhomeon{
+  background-color: lightgrey;
+  position: absolute; 
+  left: 74%;
+  top: 18%;
+  width: 10%;
 }
