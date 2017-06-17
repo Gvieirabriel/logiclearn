@@ -93,7 +93,6 @@ CREATE TABLE tbResposta(
 CREATE TABLE tbListaExercicioPessoa(
 	idPessoa INTEGER NOT NULL,
     idListaExercicio INTEGER NOT NULL,
-    isFeita BOOL,
     PRIMARY KEY (idPessoa, idListaExercicio),
     FOREIGN KEY (idListaExercicio) REFERENCES tbListaExercicio(idListaExercicio) ON UPDATE CASCADE,
     FOREIGN KEY (idPessoa) REFERENCES tbPessoa(idPessoa) ON UPDATE CASCADE
