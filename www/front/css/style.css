@@ -165,3 +165,97 @@ button:hover {
   width: 35%;
   height: 40%;
 }
+
+
+.news{
+  padding: 0.2% 0.5%;
+  color: #3299bb;
+  font-size: 20px;
+  font-weight: bold;
+  float: right;
+  margin: 0.3% 0 0 0; 
+}
+
+.news2{
+  color: #3299bb;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0.3% 0 0 0;
+}
+
+.list-group{
+  width: 30%;
+  vertical-align: bottom;
+  height: 30%;
+  line-height:100%;
+  position: absolute;
+  right: 0px;
+  display: block;
+}
+
+.bghome{
+  background-color: #adabab;
+}
+
+.bghome .bgimg{
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  display: inline-block;
+  position: absolute;
+  padding: 10% 0 0 30%;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+  border-style: solid;
+  border-width: thin;
+}
+
+.topnav a {
+  float: left;
+  color: #3299bb;
+  padding: 0.8%;
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.topnav .a2 {
+  float: left;
+  color: #ff9900;
+  padding: 0.8%;  
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.topnav a:hover {
+  background-color: #e9e9e9;
+  color: #adabab;
+}
+
+.topnav .btnhome{
+    background-color: #3299bb;
+    border: none;
+    color: white;
+    float: right;
+    padding: 1% 2%;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0.3% 1% 0 0; 
+}
+
+.topnav .btnhome2{
+    background-color: #ff9900;
+    border: none;
+    color: white;
+    float: right;
+    padding: 1% 1%;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0.3% 1% 0 0; 
+}
