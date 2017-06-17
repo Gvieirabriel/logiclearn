@@ -292,3 +292,57 @@ button:hover {
   top: 19%;
   width: 10%;
 }
+
+.imgava {
+  margin: 0.5% 0 0 0.5%;
+}
+
+.buttonEdit {
+  display: inline-block;
+  float: right;
+  margin: 0.3% 1% 0 0;
+  width: 2%;
+}
+
+
+.profile {
+  width: 100%;
+  height: 100%;
+  background-color: purple;
+  border-width: 1%;
+  border-style: solid;
+  border-color: black;
+  padding: 10%;
+}
+
+.profile img {
+  float: left;
+  display: inline-block;
+}
+
+.profile_name {
+  background-color: #adabab;
+  color: black;
+  width: 90%;
+  font-size: 25px;
+  padding: 1%;
+  border-width: 0.5%;
+  border-style: solid;
+  border-color: black;
+  float: right;
+  margin: 0.3% 0 0 0;
+}
+
+.profile_details {
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: #adabab;
+  color: black;
+  font-size: 20px;
+  padding: 1%;
+  border-width: 0.5%;
+  border-style: solid;
+  border-color: black;
+  margin: 0.3% 0 0 0;
+}
