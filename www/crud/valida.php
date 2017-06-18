@@ -1,6 +1,5 @@
 <?php
 	session_start();	
-	include_once("conexao.php");	
 	require_once("phpmailer/PHPMailerAutoload.php");
 
 	$mail = new PHPMailer();
@@ -37,7 +36,7 @@
                         <br>The LogicLearn Team</p>
                     </td>
                   </tr>
-				</table>';
+		</table>';
 
 			$enviado = $mail->Send();
 
