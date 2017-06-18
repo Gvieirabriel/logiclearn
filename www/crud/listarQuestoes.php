@@ -9,7 +9,7 @@ $id = $_GET["id"];
 
 $tam = $_GET["tam"];
 
-$sql = "select * from tbQuestao where idListaExercicio = ".$id." ORDER BY idListaExercicio LIMIT ".$num_questao.",1;";
+$sql = "select * from tbQuestao INNER JOIN tbListaExercicioQuestao ON tbListaExercicioQuestao.idQuestao = tbQuestao.idQuestao INNER JOIN tbListaExercicio ON tbListaExercicioQuestao.idListaExercicio = tbListaExercicio.idListaExercicio where tbListaExercicio.idListaExercicio = ".$id." ORDER BY tbListaExercicio.idListaExercicio LIMIT ".$num_questao.",1;";
 
 $res = mysqli_query($conn, $sql);
 
