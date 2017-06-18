@@ -65,6 +65,14 @@ CREATE TABLE tbQuestao(
     FOREIGN KEY (idListaExercicio) REFERENCES tbListaExercicio(idListaExercicio) ON UPDATE CASCADE
 );
 
+CREATE TABLE tbListaExercicioQuestao(
+	idQuestao INTEGER NOT NULL,
+    idListaExercicio INTEGER NOT NULL,
+    PRIMARY KEY (idQuestao, idListaExercicio),
+    FOREIGN KEY (idListaExercicio) REFERENCES tbListaExercicio(idListaExercicio) ON UPDATE CASCADE,
+    FOREIGN KEY (idQuestao) REFERENCES tbQuestao(idQuestao) ON UPDATE CASCADE
+);
+
 CREATE TABLE tbAlternativa(
 	idAlternativa INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     enunciado varchar(255),
