@@ -28,16 +28,11 @@ CREATE TABLE tbParticipa(
 
 CREATE TABLE tbDisciplina(
 	idDisciplina INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nomeDisciplina varchar(50)
+    idCurso INTEGER NOT NULL,
+    nomeDisciplina varchar(50),
+	FOREIGN KEY (idCurso) REFERENCES tbCurso(idCurso) ON UPDATE CASCADE
 );
 
-CREATE TABLE tbDisciplinaCurso(
-	idCurso INTEGER NOT NULL,
-    idDisciplina INTEGER NOT NULL,
-    PRIMARY KEY (idCurso, idDisciplina),
-    FOREIGN KEY (idDisciplina) REFERENCES tbDisciplina(idDisciplina) ON UPDATE CASCADE,
-    FOREIGN KEY (idCurso) REFERENCES tbCurso(idCurso) ON UPDATE CASCADE
-);
 
 CREATE TABLE tbAssunto( 
 	idAssunto INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
