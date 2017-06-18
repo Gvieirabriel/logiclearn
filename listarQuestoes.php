@@ -46,6 +46,9 @@ while ($row = mysqli_fetch_assoc($res)) {
         echo "'style=text-decoration:none>Remover</a>";
     }
 
+    echo "<a href='/crud/questaoProva.php?idQuestao=".$row["idQuestao"];
+    echo "'style=text-decoration:none> | Adicionar</a>";
+
     echo "</center></td>";
     echo "</tr>";
 }
