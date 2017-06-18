@@ -1,5 +1,5 @@
 <?php
-	session_start();	
+	$conn = include_once('mysql.inc.php');
 	require_once("phpmailer/PHPMailerAutoload.php");
 
 	$mail = new PHPMailer();
@@ -44,16 +44,15 @@
 			$mail->ClearAttachments();
 
 			if ($enviado) {
-			  echo "E-mail enviado com sucesso!";
+				$troca_senha = "UPDATE tbPessoa SET senha='md5($pwd)' WHERE email = '$usuario'";
+				$resultado = mysqli_query($conn, $troca_senha);
 			} else {
 			  echo "Não foi possível enviar o e-mail. ";
 			}
 		}else{	
 			$_SESSION['loginErro'] = "Email Inválido";
-			header("Location: index.php");
 		}
 	}else{
 		$_SESSION['loginErro'] = "Email inválido";
-		header("Location: index.php");
 	}
 ?>
