@@ -12,9 +12,9 @@
 </head>
   <div class="topnav" id="myTopnav">
     <a><img src="img/logo2.png" width="150" height="40"></a>
-    <a href="#home">HOME</a>
+    <a href="home.php">HOME</a>
     <a class="a2" href="">MELHORES DA SEMANA</a>
-    <a href="">SALAS</a>
+    <a href="roomsearch.php">SALAS</a>
     <input class="searchhome" placeholder="Pesquisa" type="text" name="search">
     <form action="cadastro.php">
       <button type="submit" class="btnhome2" ><strong>CADASTRAR</strong></button>

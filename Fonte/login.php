@@ -22,7 +22,7 @@
 			<input class="inputlogin" type="password" name="password">
 			<button type="submit" class="btnlogin2"><strong>ENTRAR</strong></button>
 		</form>
-		<form action="cadastrar.php">
+		<form action="cadastro.php">
 			<button type="submit" class="btnlogin1"><strong>CADASTRAR</strong></button>
 		</form>
 			<a href="recuperar.php">Esqueceu sua senha?</a>

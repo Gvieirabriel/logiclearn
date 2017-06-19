@@ -16,7 +16,7 @@ echo $email;
 echo $matricula;
 echo $senha;
 echo $tipo;
-$sql = "INSERT INTO $dbname.tbPessoa (nome,senha,email,GRR_OU_OOUTROGRR,tipo) VALUES ('".$nome."','".$senha."','".$email."','".$matricula."','".$tipo."')";
+$sql = "INSERT INTO $dbname.tbPessoa (nome,senha,email,GRR_OU_OOUTROGRR,tipo) VALUES ('".$nome."','".md5($senha)."','".$email."','".$matricula."','".$tipo."')";
 echo $sql;
 mysqli_query($conn, $sql);
 header('location:home.php');

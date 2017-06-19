@@ -32,7 +32,7 @@ if ( isset($_GET["idQuestao"]) )
   $rowc = mysqli_fetch_assoc($resc);
   $rowd = mysqli_fetch_assoc($resd);
   $rowe = mysqli_fetch_assoc($rese);
-    header('location:exercicios.php');
+ 
 }
 ?>
 
@@ -85,7 +85,7 @@ if ( isset($_GET["idQuestao"]) )
     <div class="cadastroboxhome">
     <div class="cadtitle">CADASTRO DE EXERCÍCIO</div>
     <div class="formlogin">
-     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+      <form action="cadastrarQuestao.php" method="post">
   
     <?php
       if(isset($idQuestao))
