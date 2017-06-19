@@ -119,7 +119,7 @@ $questao_set = mysqli_query($conn,$news);
 
       <input type="hidden" name="idAssunto" value="<?php echo $idAssunto;?>"/>
 
-    <button type="submit" class="btncadastro"><strong>CADASTRAR</strong></button>  
+    <input type="submit" class="btncadastro"></input>  
     </form> 
     </div>
     </div>
