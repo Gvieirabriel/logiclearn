@@ -1,4 +1,6 @@
 <?php
+require 'sanitize.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -102,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select> 
         <br>
         NOME:<br>
-        <input class="inputlogin" type="text" name="username"><br>
+        <input class="inputlogin" type="text" name="assunto" required=""><br>
     </form> 
     <div class="limpa"></div>
         <button type="submit" class="btncadastro"><strong>CADASTRAR</strong></button>

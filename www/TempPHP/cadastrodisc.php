@@ -1,4 +1,6 @@
 <?php
+require 'sanitize.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -17,7 +19,7 @@ $curso_set = mysqli_query($conn,$sql2);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $curso = $_POST["curso"];
-  $disciplina = $_POST["disciplina"];
+  $disciplina = sanitize($_POST["disciplina"]);
 
   $sql1 = "SELECT idCurso, nomeCurso FROM $dbname.tbCurso WHERE nomeCurso ='".$curso."';";
   $idcurso_set = mysqli_query($conn, $sql1);
@@ -80,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         CURSO:<br>
         <select name="curso">
-        <option value="default">Selecionar</option>
+        <option>Selecionar</option>
         <?php if(mysqli_num_rows($curso_set) > 0): ?>
         <?php while($curso = mysqli_fetch_assoc($curso_set)): ?>
             <option value="<?php echo $curso["nomeCurso"] ?>" > <?php echo $curso["nomeCurso"] ?> </option>
@@ -89,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select> 
         <br>
         NOME:<br>
-        <input class="inputlogin" type="text" name="disciplina"><br>
+        <input class="inputlogin" type="text" name="disciplina" required><br>
         <button type="submit" class="btncadastro"><strong>CADASTRAR</strong></button>
     </form> 
     <div class="limpa"></div>

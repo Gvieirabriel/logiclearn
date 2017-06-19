@@ -1,4 +1,6 @@
 <?php
+require 'sanitize.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -13,7 +15,7 @@ if (!$conn) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  $curso = $_POST["curso"];
+  $curso = sanitize($_POST["curso"]);
 
   // teste
   $idpessoa = 1; 
@@ -71,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="formlogin">
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         NOME:<br>
-        <input class="inputlogin" type="text" name="curso"><br>
+        <input class="inputlogin" type="text" name="curso" required><br>
          <button type="submit" class="btncadastro"><strong>CADASTRAR</strong></button>
     </form> 
        
