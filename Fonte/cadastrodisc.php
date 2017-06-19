@@ -91,9 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input class="inputlogin" type="text" name="disciplina" required><br>
         <button type="submit" class="btncadastro"><strong>CADASTRAR</strong></button>
     </form> 
-    <div class="limpa"></div>
-        
-
     </div>
     </div>
 

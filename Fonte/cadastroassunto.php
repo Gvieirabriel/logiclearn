@@ -1,14 +1,34 @@
 <?php
 require 'sanitize.php';
 $conn = include_once('mysql.inc.php');
+
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql2 = "SELECT (nomeCurso) FROM tbCurso";
-$curso_set = mysqli_query($conn,$sql2);
+$sql1 = "SELECT (nomeDisciplina) FROM tbDisciplina";
+$disciplina_set = mysqli_query($conn,$sql1);
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+  $disciplina = $_POST["disciplina"];
+  $assunto = sanitize($_POST["assunto"]);
+
+  $sql2 = "SELECT idDisciplina, idCurso FROM tbDisciplina WHERE nomeDisciplina = '".$disciplina."';";
+  $disciplina_set = mysqli_query($conn,$sql2);
+
+  $row = mysqli_fetch_assoc($disciplina_set);
+
+  $idDisciplina = $row["idDisciplina"];
+
+  echo $idDisciplina;
+
+  $sql = "INSERT INTO tbAssunto (nomeAssunto,idDisciplina) VALUES ('".$assunto."', '".$idDisciplina."')"; 
+  mysqli_query($conn, $sql);
+
+  header('location:assuntos.php');
+}
 
 ?>
 
@@ -22,7 +42,7 @@ $curso_set = mysqli_query($conn,$sql2);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <title>Cursos</title>
+  <title>Cadastro de Disciplina</title>
 </head>
   <div class="topac">
     <img src="img/person-flat.png" width="120" height="100">
@@ -58,18 +78,26 @@ $curso_set = mysqli_query($conn,$sql2);
         </ul>
     </div>
 
-    <div class="selectboxhome">
-    <div class="selecttitle">CURSOS</div>
-    <ul>
-        <?php if(mysqli_num_rows($curso_set) > 0): ?>
-        <?php while($curso = mysqli_fetch_assoc($curso_set)): ?>
-        <li> <?php echo $curso["nomeCurso"]?> </li>
+    <div class="cadastroboxhome">
+    <div class="cadtitle">CADASTRO DE ASSUNTO</div>
+    <div class="formlogin">
+     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        DISCIPLINA:<br>
+        <select name="disciplina">
+        <option value="default">Selecionar</option>
+        <?php if(mysqli_num_rows($disciplina_set) > 0): ?>
+        <?php while($disciplina = mysqli_fetch_assoc($disciplina_set)): ?>
+            <option  value="<?php echo $disciplina["nomeDisciplina"] ?>" > <?php echo $disciplina["nomeDisciplina"] ?> </option>
         <?php endwhile; ?>
         <?php endif; ?>
-    </ul> 
-    <form action="cadastrocurso.php">
-      <button type="submit" class="inputlogin"><strong>Cadastrar Curso</strong></button>
-    </form>
+        </select> 
+        <br>
+        NOME:<br>
+        <input class="inputlogin" type="text" name="assunto" required><br>
+        <button type="submit" class="btncadastro"><strong>CADASTRAR</strong></button>
+    </form> 
+        
+    </div>
     </div>
 
 
