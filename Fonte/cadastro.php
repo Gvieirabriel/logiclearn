@@ -1,36 +1,25 @@
 <?php 
 require 'sanitize.php';
-
-$servername = "localhost";
-$username = "root";
-$password = "Questionetudo1";
-$dbname= "DB";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password);
+$conn = include_once('mysql.inc.php');
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
 $nome = sanitize($_POST["nome"]);
 $email = sanitize($_POST["email"]);
 $matricula = sanitize($_POST["matricula"]);
 $senha = sanitize($_POST["senha"]);
 $tipo = sanitize($_POST["tipo"]);
-
 echo $nome;
 echo $email;
 echo $matricula;
 echo $senha;
 echo $tipo;
-
 $sql = "INSERT INTO $dbname.tbPessoa (nome,senha,email,GRR_OU_OOUTROGRR,tipo) VALUES ('".$nome."','".$senha."','".$email."','".$matricula."','".$tipo."')";
 echo $sql;
 mysqli_query($conn, $sql);
-
+header('location:home.php');
 }
 ?>
 
@@ -68,4 +57,3 @@ mysqli_query($conn, $sql);
 
 </body>
 </html>
-

@@ -1,13 +1,6 @@
 <?php
 require 'sanitize.php';
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "DB";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password);
+$conn = include_once('mysql.inc.php');
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -30,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $sql = "INSERT INTO $dbname.tbDisciplina (idCurso, nomeDisciplina) VALUES (".$idcurso.", '".$disciplina."')"; 
   mysqli_query($conn, $sql);
-
+  header('location:disciplinas.php');
 }
 
 ?>
@@ -49,20 +42,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="topac">
     <img src="img/person-flat.png" width="120" height="100">
     <img class ="logTop" src="img/logo2.png" width="200" height="75">
-    <p><strong>Nome</strong></p>
-    <p><strong>LVL</strong></p>
+    <p><strong><?php session_start(); echo $_SESSION['nome'] ?></strong></p>
+    <p><strong><?php echo $_SESSION['lvl'] ?></strong></p>
   </div>
-  <div class="topnav" id="myTopnav">
-    <a href="#home">HOME</a>
-    <a class="a2" href="">CURSOS</a>
-    <a href="">DISCIPLINAS</a>
-    <a class="a2" href="">ASSUNTOS</a>
-    <a href="">EXERCICIOS</a>
-    <a class="a2" href="">SALAS</a>
-    <a href="">MELHORES DA SEMANA</a>
+   <div class="topnav" id="myTopnav">
+    <a href="homeon.php">HOME</a>
+    <a class="a2" href="cursos.php">CURSOS</a>
+    <a href="disciplinas.php">DISCIPLINAS</a>
+    <a class="a2" href="assuntos.php">ASSUNTOS</a>
+    <a href="exercicios.php">EXERCICIOS</a>
+    <a class="a2" href="roomsearch.php">SALAS</a>
+    <a href="best.php">MELHORES DA SEMANA</a>
     <input class="searchhomeon" placeholder="Pesquisa" type="text" name="search">
+    <form action="profile.php">
     <button type="submit" class="btnhome2"><strong>PERFIL</strong></button>
+    </form>
+    <form action="home.php">
     <button type="submit" class="btnhome"><strong>SAIR</strong></button>
+    </form>
   </div>
   <body class="bghome">
 

@@ -16,7 +16,7 @@
     <a class="a2" href="">MELHORES DA SEMANA</a>
     <a href="">SALAS</a>
     <input class="searchhome" placeholder="Pesquisa" type="text" name="search">
-    <form action="cadastrar.php">
+    <form action="cadastro.php">
       <button type="submit" class="btnhome2" ><strong>CADASTRAR</strong></button>
     </form>
     <form action="login.php">
