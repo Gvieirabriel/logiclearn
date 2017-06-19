@@ -78,16 +78,16 @@ while ($row = mysqli_fetch_assoc($res)) {
     echo "<td><center>".$row["likes"]."</center></td>";
     echo "<td><center>".$row["deslikes"]."</center></td>";
     echo "<td><center>";
-    echo "<a href='/crud/mostraQuestao.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
+    echo "<a href='/mostraQuestao.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
     echo "'style=text-decoration:none> Visualizar</a>";
     if($row["idPessoa"] == $idPessoa){
-        echo "<a href='/crud/formQuestoes.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
+        echo "<a href='/formQuestoes.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
         echo "'style=text-decoration:none> | Editar</a>";
         echo " | ";
-        echo "<a href='/crud/removerQuestao.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
+        echo "<a href='/removerQuestao.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
         echo "'style=text-decoration:none>Remover</a>";
     }
-    echo "<a href='/crud/questaoProva.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
+    echo "<a href='/questaoProva.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
     echo "'style=text-decoration:none> | Adicionar</a>";
     echo "</center></td>";
     echo "</tr>";

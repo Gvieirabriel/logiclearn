@@ -12,7 +12,10 @@
 		<div class="logintitle">LOGIN</div>
 		<div class="formlogin">
 		<form action="loginscript.php" method="post">
-			<?php session_start(); echo $_SESSION['er'] ?><br>
+			<?php session_start(); 
+			if(!empty($_SESSION['er'])){
+			  echo $_SESSION['er'];
+			  }?><br>
 			NOME:<br>
 			<input class="inputlogin" type="text" name="username"><br>
 			SENHA:<br>
