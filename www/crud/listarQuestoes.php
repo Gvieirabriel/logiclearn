@@ -19,7 +19,7 @@ if ( isset($_GET["idAssunto"]) )
 
 echo "<center>";
 
-echo "<a href='/crud/home.php'>Home</a>";
+echo "<a href='/crud/listarListas.php'>Home</a>";
 echo " | ";
 echo "<a href='formQuestoes.php?idAssunto=".$idAssunto."'>Novo</a> <br/><br/>";
 
@@ -46,7 +46,7 @@ while ($row = mysqli_fetch_assoc($res)) {
         echo "'style=text-decoration:none>Remover</a>";
     }
 
-    echo "<a href='/crud/adicionaQuestao.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
+    echo "<a href='/crud/questaoProva.php?idQuestao=".$row["idQuestao"]."&idAssunto=".$idAssunto;
     echo "'style=text-decoration:none> | Adicionar</a>";
 
     echo "</center></td>";
