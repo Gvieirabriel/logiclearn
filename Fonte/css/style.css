@@ -15,6 +15,12 @@ margin: 0;
   height: 50%;
 }
 
+.questaobox{
+  margin: 10% auto;
+  background-color: #e9e9e9;
+  width: 100%;
+}
+
 .searchbox{
   margin: 10% auto;
   background-color: #e9e9e9;
