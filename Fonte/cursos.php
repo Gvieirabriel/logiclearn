@@ -41,7 +41,7 @@ $curso_set = mysqli_query($conn,$sql2);
     <a href="disciplinas.php">DISCIPLINAS</a>
     <a class="a2" href="">ASSUNTOS</a>
     <a href="">EXERCICIOS</a>
-    <a class="a2" href="">SALAS</a>
+    <a class="a2" href="roomsearch.php">SALAS</a>
     <a href="">MELHORES DA SEMANA</a>
     <input class="searchhomeon" placeholder="Pesquisa" type="text" name="search">
     <button type="submit" class="btnhome2"><strong>PERFIL</strong></button>
@@ -70,7 +70,9 @@ $curso_set = mysqli_query($conn,$sql2);
         <?php endwhile; ?>
         <?php endif; ?>
     </ul> 
-    
+    <form action="cadastrocurso.php">
+    <button type="submit" class="inputlogin"><strong>Cadastrar Curso</strong></button>
+    </form>
     </div>
 
 
