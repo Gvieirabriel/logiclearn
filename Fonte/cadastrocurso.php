@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $sql = "INSERT INTO $dbname.tbCurso (nomeCurso, idPessoa) VALUES ('".$curso."', ".$idpessoa.")";   
   mysqli_query($conn, $sql);
+  header('location:cursos.php');
 }
 
 ?>
@@ -45,16 +46,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <p><strong>LVL</strong></p>
   </div>
   <div class="topnav" id="myTopnav">
-    <a href="#home">HOME</a>
-    <a class="a2" href="">CURSOS</a>
-    <a href="">DISCIPLINAS</a>
+    <a href="homeon.php">HOME</a>
+    <a class="a2" href="cursos.php">CURSOS</a>
+    <a href="disciplinas.php">DISCIPLINAS</a>
     <a class="a2" href="">ASSUNTOS</a>
     <a href="">EXERCICIOS</a>
-    <a class="a2" href="">SALAS</a>
+    <a class="a2" href="roomsearch.php">SALAS</a>
     <a href="">MELHORES DA SEMANA</a>
     <input class="searchhomeon" placeholder="Pesquisa" type="text" name="search">
     <button type="submit" class="btnhome2"><strong>PERFIL</strong></button>
+    <form action="home.php">
     <button type="submit" class="btnhome"><strong>SAIR</strong></button>
+    </form>
   </div>
   <body class="bghome">
 
