@@ -6,7 +6,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql2 = "SELECT (nomeCurso) FROM $dbname.tbCurso";
+$sql2 = "SELECT (nomeCurso) FROM tbCurso";
 $curso_set = mysqli_query($conn,$sql2);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,14 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $curso = $_POST["curso"];
   $disciplina = sanitize($_POST["disciplina"]);
 
-  $sql1 = "SELECT idCurso, nomeCurso FROM $dbname.tbCurso WHERE nomeCurso ='".$curso."';";
+  $sql1 = "SELECT idCurso, nomeCurso FROM tbCurso WHERE nomeCurso ='".$curso."';";
   $idcurso_set = mysqli_query($conn, $sql1);
 
   $row = mysqli_fetch_assoc($idcurso_set);
 
   $idcurso = $row["idCurso"];
 
-  $sql = "INSERT INTO $dbname.tbDisciplina (idCurso, nomeDisciplina) VALUES (".$idcurso.", '".$disciplina."')"; 
+  $sql = "INSERT INTO tbDisciplina (idCurso, nomeDisciplina) VALUES (".$idcurso.", '".$disciplina."')"; 
   mysqli_query($conn, $sql);
   header('location:disciplinas.php');
 }

@@ -6,7 +6,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql2 = "SELECT (nomeDisciplina) FROM $dbname.tbDisciplina";
+$sql2 = "SELECT (nomeDisciplina) FROM tbDisciplina";
 $disciplina_set = mysqli_query($conn,$sql2);
 
 

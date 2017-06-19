@@ -6,7 +6,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql2 = "SELECT (nomeCurso) FROM $dbname.tbCurso";
+$sql2 = "SELECT (nomeCurso) FROM tbCurso";
 $curso_set = mysqli_query($conn,$sql2);
 
 
@@ -34,10 +34,10 @@ $curso_set = mysqli_query($conn,$sql2);
     <a href="homeon.php">HOME</a>
     <a class="a2" href="cursos.php">CURSOS</a>
     <a href="disciplinas.php">DISCIPLINAS</a>
-    <a class="a2" href="assuntos.php">ASSUNTOS</a>
-    <a href="exercicios.php">EXERCICIOS</a>
+    <a class="a2" href="">ASSUNTOS</a>
+    <a href="">EXERCICIOS</a>
     <a class="a2" href="roomsearch.php">SALAS</a>
-    <a href="best.php">MELHORES DA SEMANA</a>
+    <a href="">MELHORES DA SEMANA</a>
     <input class="searchhomeon" placeholder="Pesquisa" type="text" name="search">
     <form action="profile.php">
     <button type="submit" class="btnhome2"><strong>PERFIL</strong></button>

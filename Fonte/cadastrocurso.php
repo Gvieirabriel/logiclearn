@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // teste
   $idpessoa = 1; 
 
-  $sql = "INSERT INTO $dbname.tbCurso (nomeCurso, idPessoa) VALUES ('".$curso."', ".$idpessoa.")";   
+  $sql = "INSERT INTO tbCurso (nomeCurso, idPessoa) VALUES ('".$curso."', ".$idpessoa.")";   
   mysqli_query($conn, $sql);
   header('location:cursos.php');
 }
