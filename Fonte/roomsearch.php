@@ -11,12 +11,12 @@
     <div class="logintitle">SALA</div>
     <div class="formSearch">
     <img src="img/logo2.png" class="centerImage" width="430" height="100">
-     <form>
+     <form action="/crud/entrarProva.php" method='post'>
         NOME DA SALA:<br>
         <input class="inputlogin" type="text" name="firstname"><br>
-    </form> 
     </div>
-     <input type="button" class="buttonSearch" value="ENTRAR">
+     <input type="submit" class="buttonSearch" value="ENTRAR">
+     </form> 
   </div>
 
 </body>
