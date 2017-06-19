@@ -1,3 +1,17 @@
+<?php
+require 'sanitize.php';
+$conn = include_once('mysql.inc.php');
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql2 = "SELECT * FROM tbQuestao";
+$questao_set = mysqli_query($conn,$sql2);
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,9 +52,11 @@
     <div id="collapse1" class="panel-collapse collapse">
          <ul class="list-group">
          <li class="list-group-item"><a class="news2" data-toggle="collapse" href="#collapse1">FECHAR</a></li>
-          <li class="list-group-item">TESTE</li>
-          <li class="list-group-item">TESTE</li>
-          <li class="list-group-item">TESTE</li>
+         <?php if(mysqli_num_rows($questao_set) > 0): ?>
+        <?php while($quest = mysqli_fetch_assoc($questao_set)): ?>
+         <li class="list-group-item"><?php echo $quest["enunciado"]?> </li>
+        <?php endwhile; ?>
+        <?php endif; ?>
         </ul>
     </div>
 
