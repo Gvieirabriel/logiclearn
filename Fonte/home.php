@@ -24,7 +24,7 @@ $questao_set = mysqli_query($conn,$news);
   <div class="topnav" id="myTopnav">
     <a><img src="img/logo2.png" width="150" height="40"></a>
     <a href="home.php">HOME</a>
-    <a class="a2" href="">MELHORES DA SEMANA</a>
+    <a class="a2" href="best.php">MELHORES DA SEMANA</a>
     <a href="roomsearch.php">SALAS</a>
     <input class="searchhome" placeholder="Pesquisa" type="text" name="search">
     <form action="cadastro.php">
