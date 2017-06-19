@@ -1,33 +1,20 @@
 <?php
 $conn = include_once('mysql.inc.php');
-
 $res = NULL;
-
 if(isset($_POST["num_questao"]))
 	$num_questao = $_POST["num_questao"];
-
 if(isset($_POST["id"]))
 	$id = $_POST["id"];
-
 if(isset($_POST["tam"]))
 	$tam = $_POST["tam"];
-
 if(isset($_GET["num_questao"]))
 	$num_questao = $_GET["num_questao"];
-
 if(isset($_GET["id"]))
 	$id = $_GET["id"];
-
 if(isset($_GET["tam"]))
 	$tam = $_GET["tam"];
-
 $sql = "select * from tbQuestao INNER JOIN tbListaExercicioQuestao ON tbListaExercicioQuestao.idQuestao = tbQuestao.idQuestao where tbListaExercicioQuestao.idListaExercicio = ".$id." ORDER BY tbListaExercicioQuestao.idListaExercicio LIMIT ".$num_questao.",1;";
-
 $res = mysqli_query($conn, $sql);
-
-if($res === FALSE) { 
-   header("location:/crud/listar.php");
-}
 ?>
 
 
@@ -53,74 +40,49 @@ echo "	<meta charset='utf-8'>";
 echo "	<link rel='stylesheet' type='text/css' href='/front/css/style.css'>";
 echo "	<title>Acertos</title>";
 echo "</head>";
-
 echo "<body class='bglogin'>";
-
 echo "	<div class='searchbox'>";
-
 echo "<center>";
-
 $prox_num_questao = $num_questao + 1 ;
 $ant_num_questao = $num_questao - 1 ;
-
 $row = mysqli_fetch_assoc($res);
 	
 $sql2 = "select * from tbAlternativa where idQuestao = ".$row["idQuestao"].";";
-
 $res2 = mysqli_query($conn, $sql2);
-
 if($res2 === FALSE) { 
    die(mysqli_error());
 }
-
 echo "<table border='1px' style='width:80%'>";
-
 echo "<tr>";
-
 $cont = 0;
-
 while ( $cont < $tam) {
-
 	echo "<td><center><a href='/crud/listarQuestao.php?id=".$row["idListaExercicio"]."&num_questao=".$cont."&tam=".$tam."'";
     $cont = $cont + 1;
     echo "'style=text-decoration:none>".$cont."</a>";   
-
 }
-
 echo "</tr>";
-
 echo "<tr><center><form action='/crud/acertos.php?id=".$row["idListaExercicio"]."&tam=".$tam."' method='post'>";
-echo "<button type='submit' name='finalizar' class='btn-link'> FINALIZAR </button>";
+echo "<button type='submit' name='finalizar' class='buttonSearch'> FINALIZAR </button><br> <br>";
 echo "</form>";
-
 echo "</tr>";
-
-echo "</table>";
-
+echo "</table> <br> <br>";
 echo "<table border='1px' style='width:80%'>";
-
 echo "<th>Enunciado</th>";
-
 echo "<tr>";
-
 echo "<td><center>".$row["enunciado"]."</center></td>";
-
 echo "</tr>";
-
 echo "</table>";
-
 echo "<form method='POST'>";
 while ($row2 = mysqli_fetch_assoc($res2)) {
+	echo "<br>";
 	echo "<INPUT TYPE='radio' NAME='OPCAO' VALUE=".$row2["idAlternativa"]." CHECKED> ".$row2["letra"].") ".$row2["enunciado"];
 }
-echo "<input type='submit'/>";
+echo "<br><br>";
+echo "<button type='submit' name='DESLIKE' class='btnlogin1'> DESLIKE </button>";
+echo "<button type='submit' name='LIKE' class='btnlogin2'> LIKE </button>";
 
-echo "<button type='submit' name='LIKE' class='btn-link'> LIKE </button>";
-
-echo "<button type='submit' name='DESLIKE' class='btn-link'> DESLIKE </button>";
-
+echo "<input type='submit' class='buttonSearch'/>";
 echo "</form>";
-
 if(isset($_POST["LIKE"]))
 {
 	$val = $_POST["LIKE"];
@@ -128,7 +90,6 @@ if(isset($_POST["LIKE"]))
 	$sql3 = "update tbQuestao  SET likes=".$sum." WHERE idQuestao= ".$row["idQuestao"].";";
 	mysqli_query($conn, $sql3);
 }
-
 if(isset($_POST["DESLIKE"]))
 {
 	$val = $_POST["DESLIKE"];
@@ -136,7 +97,6 @@ if(isset($_POST["DESLIKE"]))
 	$sql3 = "update tbQuestao  SET deslikes=".$sum." WHERE idQuestao= ".$row["idQuestao"].";";
 	mysqli_query($conn, $sql3);
 }
-
 if(isset($_POST["OPCAO"]))
 {
 	$radioVal = $_POST["OPCAO"];
@@ -147,25 +107,17 @@ if(isset($_POST["OPCAO"]))
 		mysqli_query($conn, $sql3);
 	}
 }
-
 if($prox_num_questao < $tam){
 	echo "<form action='/crud/listarQuestao.php?id=".$id."&num_questao=".$prox_num_questao."&tam=".$tam."' method='post'>";
-
-	echo "<button type='submit' name='OPCAO' class='btn-link'> PROXIMA </button>";
-
+	echo "<button type='submit' name='OPCAO' class='btnlogin2'> PROXIMA </button>";
 	echo "</form>";
 }
-
 if($ant_num_questao >= 0){
 	echo "<form action='/crud/listarQuestao.php?id=".$id."&num_questao=".$ant_num_questao."&tam=".$tam."' method='post'>";
-
-	echo "<button type='submit' name='OPCAO' class='btn-link'> ANTERIOR </button>";
-
+	echo "<button type='submit' name='OPCAO' class='btnlogin1'> ANTERIOR </button>";
 	echo "</form>";
 }
-
 echo "</center>";
-
 ?>
 </div>
 </body>

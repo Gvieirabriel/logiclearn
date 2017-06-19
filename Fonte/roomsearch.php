@@ -13,7 +13,7 @@
     <img src="img/logo2.png" class="centerImage" width="430" height="100">
      <form action="/crud/entrarProva.php" method='post'>
         NOME DA SALA:<br>
-        <input class="inputlogin" type="text" name="firstname"><br>
+        <input class="inputlogin" type="text" name="idProva"><br>
     </div>
      <input type="submit" class="buttonSearch" value="ENTRAR">
      </form> 
