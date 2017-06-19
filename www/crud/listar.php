@@ -7,7 +7,7 @@ $res = mysqli_query($conn, $sql);
 
 echo "<center>";
 
-echo "<a href='/crud/home.php'>Home</a>";
+echo "<a href='/crud/listarListas.php'>Home</a>";
 echo " | ";
 echo "<a href='form.php'>Novo</a> <br/><br/>";
 

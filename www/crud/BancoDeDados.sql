@@ -46,7 +46,7 @@ CREATE TABLE tbListaExercicio(
     nomeListaExercicio varchar(50),
 	descricao varchar(255),
     dataLista DATETIME,
-    tamanho INTEGER
+    tamanho INTEGER DEFAULT 0
 );
 
 CREATE TABLE tbQuestao(
