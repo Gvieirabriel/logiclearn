@@ -288,9 +288,9 @@ button:hover {
 .searchhomeon{
   background-color: lightgrey;
   position: absolute; 
-  left: 74%;
+  left: 75%;
   top: 19%;
-  width: 10%;
+  width: 9%;
 }
 
 .imgava {
@@ -386,4 +386,8 @@ button:hover {
   text-align: left;
   position: relative;
   top: 5%;
+}
+
+.textexe{
+  width: 100%;
 }
