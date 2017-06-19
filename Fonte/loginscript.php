@@ -22,6 +22,7 @@ if ($row['nome']=='') {
 	$_SESSION['email'] = $login;
 	$_SESSION['nome'] = $row['nome'];
 	$_SESSION['lvl'] = $row['idPessoa'];
+	$_SESSION['id'] = $row['idPessoa'];
 	$_SESSION['tipo'] = $row['tipo'];
 	header('location:homeon.php');
 }

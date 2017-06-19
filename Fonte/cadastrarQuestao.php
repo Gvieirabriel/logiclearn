@@ -3,7 +3,7 @@ $conn = include_once('mysql.inc.php');
 
 $idQuestao = NULL;
 
-$idPessoa = 1;
+$idPessoa = $_SESSION['id']; 
 
 if(isset($_POST["idQuestao"]))
 {

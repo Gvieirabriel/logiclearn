@@ -1,8 +1,8 @@
 <?php
 $conn = include_once('mysql.inc.php');
+session_start();
 $vari = 0;
-// $idPessoa = $_SESSION["idPessoa"];
-$idPessoa = 1;
+$idPessoa = $_SESSION['id']; 
 $idAssunto = 1;
 // if ( isset($_GET["idAssunto"]) )
 // {
@@ -14,6 +14,8 @@ $idAssunto = 1;
   }
 //}
 $idAssunto = 1;
+$news = "SELECT * FROM tbQuestao ORDER BY idQuestao DESC LIMIT 5";
+$questao_set = mysqli_query($conn,$news);
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +33,7 @@ $idAssunto = 1;
  <div class="topac">
     <img src="img/person-flat.png" width="120" height="100">
     <img class ="logTop" src="img/logo2.png" width="200" height="75">
-    <p><strong><?php session_start(); echo $_SESSION['nome'] ?></strong></p>
+    <p><strong><?php echo $_SESSION['nome'] ?></strong></p>
     <p><strong><?php echo $_SESSION['lvl'] ?></strong></p>
   </div>
    <div class="topnav" id="myTopnav">
@@ -56,9 +58,11 @@ $idAssunto = 1;
     <div id="collapse1" class="panel-collapse collapse">
          <ul class="list-group">
          <li class="list-group-item"><a class="news2" data-toggle="collapse" href="#collapse1">FECHAR</a></li>
-          <li class="list-group-item">TESTE</li>
-          <li class="list-group-item">TESTE</li>
-          <li class="list-group-item">TESTE</li>
+         <?php if(mysqli_num_rows($questao_set) > 0): ?>
+        <?php while($quest = mysqli_fetch_assoc($questao_set)): ?>
+         <li class="list-group-item"><?php echo $quest["enunciado"]?> - <?php echo $quest["likes"]?></li>
+        <?php endwhile; ?>
+        <?php endif; ?>
         </ul>
     </div>
 

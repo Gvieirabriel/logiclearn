@@ -6,10 +6,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql2 = "SELECT * FROM tbQuestao";
-$questao_set = mysqli_query($conn,$sql2);
-
-
+$news = "SELECT * FROM tbQuestao ORDER BY idQuestao DESC LIMIT 5";
+$questao_set = mysqli_query($conn,$news);
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +52,7 @@ $questao_set = mysqli_query($conn,$sql2);
          <li class="list-group-item"><a class="news2" data-toggle="collapse" href="#collapse1">FECHAR</a></li>
          <?php if(mysqli_num_rows($questao_set) > 0): ?>
         <?php while($quest = mysqli_fetch_assoc($questao_set)): ?>
-         <li class="list-group-item"><?php echo $quest["enunciado"]?> </li>
+         <li class="list-group-item"><?php echo $quest["enunciado"]?> - <?php echo $quest["likes"]?></li>
         <?php endwhile; ?>
         <?php endif; ?>
         </ul>
